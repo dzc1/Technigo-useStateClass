@@ -5,12 +5,17 @@
  * This file is intended to help students understand how to pass down state and functions in React, while keeping the input's state in sync.
  */
 
+import { handleInputChange } from "../../utils/dataChange"; // Import the utility function
+
 export const Name = ({ value, updateFormData }) => {
   // Function to handle user input and update the form's name field
   const handleNameChange = (e) => {
     // Call updateFormData to update the "name" field with the input's current value
     updateFormData("name", e.target.value);
   };
+
+  // // Use the handleInputChange utility function with "age" as the field name
+  // const handleAgeChange = handleInputChange("age", updateFormData);
 
   return (
     <div className="border-box">
@@ -21,6 +26,12 @@ export const Name = ({ value, updateFormData }) => {
       {/* The onChange event triggers the handleNameChange function to update the form data */}
       <input type="text" value={value} onChange={handleNameChange} />
     </div>
+
+    // WITH UTIL FUNCTION
+    //   <div className="border-box">
+    //   <label>Age:</label>
+    //   <input type="text" value={value} onChange={handleAgeChange} />
+    // </div>
   );
 };
 

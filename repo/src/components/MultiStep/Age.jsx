@@ -5,12 +5,17 @@
  * This file helps students understand how controlled components work and how to pass down state and functions between components in React.
  */
 
+import { handleInputChange } from "../../utils/dataChange"; // Import the utility function
+
 export const Age = ({ updateFormData, value }) => {
   // Function to handle user input and update the form's age field
   const handleAgeChange = (e) => {
     // Call updateFormData to update the "age" field with the input's current value
     updateFormData("age", e.target.value);
   };
+
+  // // Use the handleInputChange utility function with "age" as the field name
+  // const handleAgeChange = handleInputChange("age", updateFormData);
 
   return (
     <div className="border-box">
@@ -21,6 +26,12 @@ export const Age = ({ updateFormData, value }) => {
       {/* The onChange event triggers the handleAgeChange function to update the form data */}
       <input type="number" value={value} onChange={handleAgeChange} />
     </div>
+
+    // WITH UTIL FUNCTION
+    //   <div className="border-box">
+    //   <label>Age:</label>
+    //   <input type="number" value={value} onChange={handleAgeChange} />
+    // </div>
   );
 };
 
